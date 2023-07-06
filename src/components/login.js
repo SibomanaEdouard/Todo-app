@@ -8,7 +8,7 @@ import {FaEye, FaEyeSlash} from 'react-icons/fa'
 // updating password
 const UpdatePass=(e)=>{
 e.preventDefault();
-window.location.href='/updatepassword';
+window.location.href='/resetpassword';
 }
 
 //to sign in page

@@ -4,6 +4,8 @@ const express=require("express");
 const app=express();
 const Tasks=require("../models/tasks");
 const bcrypt=require('bcrypt');
+const nodEmail=require("nodemailer");
+const jwt=require("jsonwebtoken");
 const CompletedSchema=require("../models/completed");
 
 //this is to insert the user in the system
@@ -231,5 +233,18 @@ console.log('The tasks were gotten successfuly');
     res.status(500).json("Something went wrong!");
   }
 });
+
+//this is to update password
+app.post('/resetpassword',async(req,res)=>{
+
+  try{
+const email=req.body;
+//check if the email is found in database
+    res.status(200).json({'message':"Its fine "});
+  }catch(error){
+    res.status(400).json({"error":"something went wrong"});
+    console.log(error);
+  } 
+})
 
 module.exports=app;
